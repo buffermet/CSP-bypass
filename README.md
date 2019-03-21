@@ -12,7 +12,7 @@ First of all make sure that your callback server is listening.
 
 Then throw the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the higher your success rate will be. 
 
-Refine your payload as required, or it may get triggered unexpectedly. please do not open issues if it's not working for you.
+Refine your payload as required, or it may get triggered unexpectedly.
 
 ```javascript
 const token = "w3lRZ87e";
