@@ -2,7 +2,7 @@ A collection of Cross-Origin callback servers for XSS exploitation.
 
 ## Description
 
-This repo contains a range of callback servers and an XSS payload that, once executed, will change the current window location of the victim to your callback server, which responds with a **301 Moved Permanently** redirection back to where the victim came from (Origin), although this time with a token in the URL anchor, telling your (stored) XSS payload to stay dormant.
+This repo contains a range of callback servers and an XSS payload that, once executed, will change the current window location of the victim to your callback server, which responds with a **301 Moved Permanently** redirection back to where the victim came from (Origin), although this time with a token in the URL anchor, telling your XSS payload to stay dormant.
 
 If for whatever reason the victim did not reveal its origin, the victim will be redirected to your panic address of choice, in an attempt to keep the attack hidden.
 
