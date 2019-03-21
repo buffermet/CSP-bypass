@@ -1,4 +1,4 @@
-A collection of Cross-Origin callback servers for XSS exploitation.
+A collection of Cross-Origin callback servers for XSS exploitation on CORS enabled sites.
 
 ## Description
 
