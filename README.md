@@ -22,4 +22,4 @@ if (location.hash != token) self.location = "https://mycallbackserver.net/callba
                 	"&token=" + encodeURIComponent( btoa(token) );
 ```
 
-<sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If that header is not present, the panic address is used.</sup>
+<sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If neither a referer parameter or Referer header is present, the panic address is used.</sup>
