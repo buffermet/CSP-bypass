@@ -6,6 +6,8 @@ This repo contains a range of callback servers and an XSS payload that, once exe
 
 If for whatever reason the victim did not reveal its origin, the victim will be redirected to your panic address of choice, in an attempt to keep the attack hidden.
 
+When the attack is successful, the victim experienced what seemed like a page refresh at most.
+
 ## Usage
 
 Use your callback server of choice and make sure it's listening.
