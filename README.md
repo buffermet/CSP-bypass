@@ -1,6 +1,6 @@
 ## Description
 
-This repo contains an example of a CORS callback server and an XSS payload that, once executed, will change the current window location of the victim to your callback address, which returns a **301 Moved Permanently** response sending the victim back to its referer, although this time with a token in the URL anchor, preventing your XSS payload from reactivating.
+This repo contains an example of a CORS callback server and an XSS payload that, once executed, will change the current window location of the victim to your callback address, which returns a **301 Moved Permanently** response sending the victim back to its referer, although this time with a token in the URL anchor, preventing the XSS payload from reactivating.
 
 This enables you to sniff sensitive data via URL parameters when the victim gets sent to your callback address.
 
