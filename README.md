@@ -2,7 +2,7 @@
 
 This repo contains an example of a CORS callback server and an XSS payload that, once executed, will change the current window location of the victim to your callback address, which returns a **301 Moved Permanently** response sending the victim back to its referer, although this time with a token in the URL anchor, preventing the XSS payload from reactivating.
 
-This enables you to sniff sensitive data via URL parameters when the victim gets sent to your callback address.
+This enables you to sniff sensitive data via URL parameters when the victim is sent to your callback address.
 
 If for whatever reason the victim did not reveal its origin (referer), the victim will be redirected to your panic address of choice, in an attempt to keep the attack hidden.
 
