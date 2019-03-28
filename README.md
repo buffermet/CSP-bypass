@@ -4,7 +4,7 @@ This repo contains an example of a CORS callback server and an XSS payload that,
 
 This enables you to sniff sensitive data via URL parameters when the victim is sent to your callback address.
 
-If for whatever reason the victim did not reveal its origin (referer), the victim will be redirected to your panic address of choice, in an attempt to keep the attack hidden.
+If the victim did not send a Referer header, you can include the referer address in a URL parameter. If no referer is provided, the victim will be redirected to a panic address of your choice, in an attempt to keep the attack hidden.
 
 When the attack is successful, the victim experienced what seemed like a page refresh at most.
 
@@ -12,7 +12,7 @@ When the attack is successful, the victim experienced what seemed like a page re
 
 First of all make sure that your callback server is listening.
 
-Then throw the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the higher your success rate will be. 
+Use the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the higher your success rate will be. 
 
 Refine your payload as required, or it may get triggered unexpectedly.
 
