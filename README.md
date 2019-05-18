@@ -6,7 +6,7 @@ This enables you to sniff sensitive data via URL parameters when the victim is s
 
 If the victim did not send a Referer header, you can include the referer address in a URL parameter. If no referer is provided, the victim will be redirected to a panic address of your choice, in an attempt to keep the attack hidden.
 
-When the attack is successful, the victim experienced what seemed like a page refresh at most.
+**When the attack is successful, the victim experienced what seemed like a page refresh at most.**
 
 ## Usage
 
