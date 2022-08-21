@@ -2,8 +2,6 @@
 
 This demonstrates how the location setter of browsers are vulnerable to cross origin resource sharing.
 
-The only patch for this would be to stop allowing URL parameters for all GET requests.
-
 This repo includes an example XSS payload and callback that, once executed, will change a browser's location to your callback server, which returns a **301 Moved Permanently** response sending the victim back to its referrer.
 
 This example also includes a token to facilitate stored and reflected XSS; a token is added to the URL's anchor preventing the XSS payload from reactivating. It would of course be better practice if you extend this payload so that it removes the stored/reflected XSS entirely.
