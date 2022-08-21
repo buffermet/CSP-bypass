@@ -1,6 +1,6 @@
-## Bypass Cross-Origin Resource Sharing restrictions
+## Bypass Content-Security-Policy to phish data
 
-This demonstrates how the location setter of browsers are vulnerable to cross origin resource sharing.
+This demonstrates how the location setter of browsers are vulnerable to CSP bypassing.
 
 This repo includes an example XSS payload and callback that, once executed, will change a browser's location to your callback server, which returns a **301 Moved Permanently** response sending the victim back to its referrer.
 
